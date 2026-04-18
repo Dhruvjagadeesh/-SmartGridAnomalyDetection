@@ -112,7 +112,7 @@ conda activate smartgrid
 pip install -r requirements.txt
 ```
 
-> ⚠️ **Important:** Use `xgboost==2.1.1` exactly. XGBoost 3.x is incompatible with SHAP 0.49.x and will raise a `ValueError` during SHAP computation.
+>  **Important:** Use `xgboost==2.1.1` exactly. XGBoost 3.x is incompatible with SHAP 0.49.x and will raise a `ValueError` during SHAP computation.
 
 ### 3 — Add data files
 
@@ -125,7 +125,7 @@ data/
 └── vae_test2.csv      ← labeled test data (contains 'source' fault column)
 ```
 
-> 📦 **Data source:** The raw dataset originates from PV fault simulation data (F0L–F7L, F0M–F7M). Use `scripts/preprocessor.py` to generate the CSVs from raw simulation files if starting from scratch.
+>  **Data source:** The raw dataset originates from PV fault simulation data (F0L–F7L, F0M–F7M). Use `scripts/preprocessor.py` to generate the CSVs from raw simulation files if starting from scratch.
 
 ---
 
