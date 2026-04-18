@@ -1,0 +1,45 @@
+name: Lint & Validate Notebooks
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install linting tools
+        run: |
+          pip install nbformat nbconvert
+
+      - name: Validate notebook JSON structure
+        run: |
+          python - <<'EOF'
+          import glob, nbformat, sys
+          errors = []
+          for path in glob.glob("notebooks/*.ipynb"):
+              try:
+                  with open(path) as f:
+                      nb = nbformat.read(f, as_version=4)
+                  nbformat.validate(nb)
+                  print(f"✅ {path}")
+              except Exception as e:
+                  errors.append(f"❌ {path}: {e}")
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+          EOF
+
+      - name: Check requirements.txt is present
+        run: test -f requirements.txt && echo "✅ requirements.txt found"

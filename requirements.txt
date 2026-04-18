@@ -1,0 +1,29 @@
+# Smart Grid Anomaly Detection — pip requirements
+# Python 3.10 recommended
+
+# Deep learning
+torch>=2.0.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Machine learning
+scikit-learn>=1.3.0
+xgboost==2.1.1   # Pin exactly — XGBoost 3.x is incompatible with SHAP 0.49.x
+
+# Explainability
+shap>=0.49.0
+
+# Extreme value theory
+ads-evt>=1.0.0
+
+# Visualisation
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Notebooks
+jupyterlab>=4.0.0
+ipykernel
+tqdm

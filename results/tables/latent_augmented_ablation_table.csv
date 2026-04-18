@@ -1,0 +1,4 @@
+Feature_Set,CV_F1_Mean,CV_F1_Std,CV_Accuracy_Mean,Test_F1,Test_Accuracy
+Raw Only,0.9695,0.0032,0.9698,0.9677,0.9683
+Raw + μ,0.9695,0.0034,0.9697,0.9687,0.9692
+Full Augmented,0.9693,0.0033,0.9696,0.9683,0.9688
